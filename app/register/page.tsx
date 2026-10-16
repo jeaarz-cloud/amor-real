@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react"
-
+import BotonInicio from "@/components/BotonInicio"
 export default function RegisterPage() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
@@ -24,6 +24,7 @@ export default function RegisterPage() {
 
   return (
     <div style={{ padding: 40, maxWidth: 400, margin: "0 auto" }}>
+      <BotonInicio />
       <h1>Crear cuenta - Amor Real</h1>
       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 20 }}>
         <input placeholder="Nombre" value={name} onChange={e=>setName(e.target.value)} required style={{padding:10, border:'1px solid #ccc', borderRadius:8}} />

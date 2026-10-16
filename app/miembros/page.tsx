@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/prisma"
 import BotonInicio from "@/components/BotonInicio"
 import TarjetaUsuario from "@/components/TarjetaUsuario"
+export const dynamic = 'force-dynamic'
+
 
 export default async function MiembrosPage() {
   const usuarios = await prisma.user.findMany({ orderBy: { createdAt: 'desc' } })

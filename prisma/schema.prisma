@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -13,4 +13,21 @@ model User {
   name      String?
   password  String
   createdAt DateTime @default(now())
+}
+
+model Miembro {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  nombre        String?
+  createdAt     DateTime @default(now())
+}
+
+model VideoIA {
+  id            String   @id @default(cuid())
+  miembroId     String
+  idea          String
+  cancionUrl    String?
+  videoUrl      String?
+  estado        String   @default("generando")
+  createdAt     DateTime @default(now())
 }
